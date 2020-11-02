@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: optimization-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: optimization-webapp
+  template:
+    metadata:
+      labels:
+        app: optimization-webapp
+    spec:
+      containers:
+      - name: optimization-webapp
+        image: rbalmeida/optimization-webapp
+        ports:
+        - containerPort: 80
