@@ -4,7 +4,7 @@ import socketserver
 PORT_NUMBER = 8080
 
 
-class CalcController(http.server.BaseHTTPRequestHandler):
+class SimpleController(http.server.BaseHTTPRequestHandler):
     def do_HEAD(self):
         self.send_response(200)
         self.send_header("Content-type", "application/json")
@@ -26,7 +26,7 @@ class CalcController(http.server.BaseHTTPRequestHandler):
 # possibly for this simple all may be manually parsed
 
 if __name__ == '__main__':
-    Handler = CalcController
+    Handler = SimpleController
     with socketserver.TCPServer(("", PORT_NUMBER), Handler) as httpd:
         print('started serving')
         httpd.serve_forever()
