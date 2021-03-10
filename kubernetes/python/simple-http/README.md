@@ -9,8 +9,16 @@ Sometimes we need to provide a very simple interface over http for a Python appl
 We could deploy a simple Python http server to expose the service of feature over http and provide a configuration to deploy it on Kubernetes.
 
 ## Experiment
-In this experiment a very simple Python controller exposing an http port, simple_controller.py, was implemented.
-A Dockerfile descriptor was used to specify an image to run this program and expose the http port. A Kubernetes deployment configuraiton was used to automate the deploy of this image to the cluster. The shell helper scripts were implemented to automate these steps and run them and a simple manual curl test was conducted after exposing the port to the local machine via the port forwarding feature of the cluster.
+In this experiment a very simple Python controller exposing an http port, simple_controller.py, was implemented.<br>
+A Dockerfile descriptor was used to specify an image to run this program and expose the http port.<br>
+A Kubernetes deployment configuraiton was used to automate the deploy of this image to the cluster.<br>
+The shell helper scripts were implemented to automate these steps<br>
+
+The results were checked with a curl command
+
+```Shell
+curl $(minikube service simple-http-service --url)
+```
 
 ## Environment
 This experiment was done on Ubuntu with a minikube Kubernetes cluster.
@@ -21,4 +29,4 @@ Solutions that are more complex, which would required for example routing, compl
 ## References
 [1] https://docs.python.org/3/library/http.server.html<br>
 [2] https://docs.python.org/3/library/http.server.html#http.server.BaseHTTPRequestHandler<br>
-[3] https://wiki.python.org/moin/BaseHttpServer
+[3] https://wiki.python.org/moin/BaseHttpServer <br>
