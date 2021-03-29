@@ -30,5 +30,5 @@ For simpler requirements a simple python http may suffice.
 [1] Welcome to Flask - Flask Documentation. https://flask.palletsprojects.com/en/1.1.x/  
 [2] uWSGI - Flask Documentation. https://flask.palletsprojects.com/en/1.1.x/deploying/uwsgi/  
 [3] The uWSGI project. https://uwsgi-docs.readthedocs.io/en/latest/  
-[4] Quickstart for Python/WSGI applications. https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html 
+[4] Quickstart for Python/WSGI applications. https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html  
 [5] Python support - uWSGI documentation. https://uwsgi-docs.readthedocs.io/en/latest/Python.html
