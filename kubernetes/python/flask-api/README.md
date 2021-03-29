@@ -17,9 +17,32 @@ As for the options described on [4], we could run uwsgi directly, or we could pu
 - [ ] Experiment uWSGI alone with Flask
 - [ ] Experiment uWSGI alone with Nginx
 - [ ] Evaluate proper usage of virtualenvs for these deployment options
+- [ ] Evaluate and create the Dockerfile for image build
+- [ ] Evaluate and create the Kubernetes deployment configurations
 
 ### Gunicorn
-Execution with Gunicorn [6] seems easier than with uWSGI as per first tests. uWSGI seems a little more complicated to set up and get running properly.
+Execution with Gunicorn
+
+### uWSGI
+After some trials, it was possible to setup uWSGi in a virtual environment. The main issues were related to virtual env configuration and the insallation of Python headers.
+
+For Python headers
+````shell
+sudo apt-get install python3-dev
+````
+After that, proper virtual env and required dependencies were installed. 
+The commands to setup the virtual env can be run with this util script:
+
+````shell
+./setup-venv-uwsgi.sh
+````
+
+The Flask application with uWSGI can then be run with:
+
+````shell
+./start-flask-uwsgi.sh
+````
+This script will start a simple Flask app in main.py on port 9191 of the localhost with the Python virtual environment created by the virtual env setup script.
 
 ## Python Virtual Environments
 One key aspect for more complex Python application is the use of virtual environments. It would be important in these experiments gather information on how to proper configure and use virtual environments in deployments to Kubernetes.
