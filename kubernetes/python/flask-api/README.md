@@ -21,12 +21,15 @@ As for the options described on [4], we could run uwsgi directly, or we could pu
 - [ ] Evaluate and create the Kubernetes deployment configurations
 
 ### Gunicorn
-Execution with Gunicorn
+To execute the app with Gunicorn the following helper script can be used:
+````shell
+./start-flask-gunicorn.sh
+````
 
 ### uWSGI
 After some trials, it was possible to setup uWSGi in a virtual environment. The main issues were related to virtual env configuration and the insallation of Python headers.
 
-For Python headers
+For Python headers:
 ````shell
 sudo apt-get install python3-dev
 ````
