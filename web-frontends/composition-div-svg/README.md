@@ -1,6 +1,6 @@
 # Composition with Divs and SVG
 ## Intent
-Use a composition of differente elements to create a visual representation.
+Use a composition of different elements to create a visual representation.
 
 ## Motivation
 We may need to create a representation by composing simpler compoments and elements, for example styled div components decorated with other drawing primitives in SVG.  
