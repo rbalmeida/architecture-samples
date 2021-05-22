@@ -1,3 +1,4 @@
-source ./venv//bin/activate
-uwsgi --http 127.0.0.1:9191 --plugin python --wsgi-file main.py --callable app --processes 4 --threads 2 -H ./venv
+#!/bin/bash
+
+uwsgi --http 0.0.0.0:9191 --plugin python --wsgi-file main.py --callable app --processes 1 --threads 1
 

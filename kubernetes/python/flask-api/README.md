@@ -14,11 +14,11 @@ As for the options described on [4], we could run uwsgi directly, or we could pu
 ## Experiment
 
 ### Experiment plan (in progress)
-- [ ] Experiment uWSGI alone with Flask
+- [X] Experiment uWSGI alone with Flask
+- [X] Evaluate proper usage of virtualenvs for these deployment options
+- [X] Evaluate and create the Dockerfile for image build
+- [X] Evaluate and create the Kubernetes deployment configurations
 - [ ] Experiment uWSGI alone with Nginx
-- [ ] Evaluate proper usage of virtualenvs for these deployment options
-- [ ] Evaluate and create the Dockerfile for image build
-- [ ] Evaluate and create the Kubernetes deployment configurations
 
 ### Gunicorn
 To execute the app with Gunicorn the following helper script can be used:
@@ -43,9 +43,41 @@ The commands to setup the virtual env can be run with this util script:
 The Flask application with uWSGI can then be run with:
 
 ````shell
-./start-flask-uwsgi.sh
+./start-flask-uwsgi-local-venv.sh
 ````
 This script will start a simple Flask app in main.py on port 9191 of the localhost with the Python virtual environment created by the virtual env setup script.
+
+To check if is running properly:
+````shell
+curl localhost:9191
+````
+
+### Network configurations for external exposure
+In orther for uWSGI to be available outside the container or kubernetes, the start url had to be 0.0.0.0.
+
+### Deployment to local minikube
+For the deployment to minikube some auxiliar artifacts were built.
+A Dockerfile to build a container image that could run the uwsgi python application.
+A kubernetes deployment configuration.
+A script, deploy-local-minikube.sh to run the container image build and deploy to minikube using the kubernetes deployment configuration.
+
+To deploy to local minikube, this script can be run:
+
+```Shell
+./deploy-local-minikube.sh
+```
+
+
+The results were checked with a curl command:
+
+```Shell
+curl $(minikube service flask-api-service --url)
+```
+
+### Conclusions and further considerations
+Some changes were made when testing and creating the container image. It was choosen to do not use for the moment a virtual environment within the container as it does not seem necessary, as the container itself provides the necessary level of isolation.
+
+The current base image for the container is ubuntu. A different base image evaluated, as well as other improvements to reduce the image size, for example removing unnecessary files after the image build.
 
 ## Python Virtual Environments
 One key aspect for more complex Python application is the use of virtual environments. It would be important in these experiments gather information on how to proper configure and use virtual environments in deployments to Kubernetes.
