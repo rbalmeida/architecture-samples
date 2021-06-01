@@ -28,5 +28,5 @@ The receive script will open a blocking program that will wait for messages. Mes
 
 ## References
 [1] RabbitMQ. https://www.rabbitmq.com/  
-[2] RabbitMQ Tutorial. https://www.rabbitmq.com/tutorials/tutorial-one-python.html 
+[2] RabbitMQ Tutorial. https://www.rabbitmq.com/tutorials/tutorial-one-python.html  
 [3] RabbitMQ Docker Hub. https://hub.docker.com/_/rabbitmq
