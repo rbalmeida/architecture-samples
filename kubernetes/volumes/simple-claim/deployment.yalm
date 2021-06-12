@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: random-writer-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100k
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: random-writer
+spec:
+  volumes:
+    - name: random-writer-storage
+      persistentVolumeClaim:
+        claimName: random-writer-pv-claim
+  containers:
+  - name: random-writer
+    image: random-writer:latest
+    imagePullPolicy: Never
+    volumeMounts:
+      - mountPath: "/output"
+        name: random-writer-storage

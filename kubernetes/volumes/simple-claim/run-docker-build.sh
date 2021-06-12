@@ -1,0 +1,1 @@
+docker build -f Dockerfile-random-writer -t random-writer:latest .

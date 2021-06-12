@@ -1,0 +1,8 @@
+FROM python:3.10.0b1-buster
+
+RUN mkdir /app
+WORKDIR /app
+
+ADD ./random_writer.py .
+
+CMD [ "python", "/app/random_writer.py" ]
