@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Min React Page</title>
+    </head>
+    <body>
+        <div id="root"></div>     
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"> </script>
+        
+        <script type="text/babel">
+            const data = [{ "name" :  "Group 1",
+                            "items" : [
+                            {"name" : "Item 1"}, 
+                            {"name" : "Item 2"}, 
+                            {"name" : "Item 3"}
+                            ]},
+                            { "name" : "Group 2",
+                            "items" : [
+                            {"name" : "Item 6"}, 
+                            {"name" : "Item 8"}, 
+                            {"name" : "Item 9"}
+                            ]}
+                        ];
+     
+            function IngredientList({items}) {
+                return(
+                    <ul className="IngredientList">
+                        {items.map((ingredient, i) => (
+                            <li key={i}>{ingredient.name}</li>
+                        ))}
+                    </ul>
+                )
+            }
+            
+            function Group({name, items}) {
+                return (
+                    <section id={name.toLowerCase().replace(/ /g, "-")}>
+                        <h1>{name}</h1>
+                        <IngredientList items={items} />
+                    </section>
+                )
+            }
+
+            function Board({groups}) {
+                return (
+                    <article>
+                        {groups.map( (group, i) =>
+                            <Group key={i} {...group} />
+                        )}
+                    </article>
+                )
+            }
+
+            ReactDOM.render(
+                <Board groups={data} />, 
+            document.getElementById("root"));
+        </script>
+
+    </body>
+</html>
