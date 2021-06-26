@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Min React Page</title>
+    </head>
+    <body>
+        <div id="root"></div>     
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+        <script>
+            const items =["Item 1", "Item 2", "Item 3"];
+            const list = React.createElement("ul",
+                                { className: "ingredients"},
+                                items.map((ingredient, i) => React.createElement("li", {key : i}, ingredient))
+            );
+            
+            ReactDOM.render(list, document.getElementById("root"));
+        </script>
+
+    </body>
+</html>
