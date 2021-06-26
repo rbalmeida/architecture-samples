@@ -23,5 +23,5 @@ Micro Frontends is an interesting concept and encapsulates some patterns for the
 [2] Vue. https://vuejs.org/  
 [3] Angular. https://angular.io/  
 [4] React. https://reactjs.org/  
-[5] Geers, M. Micro Frontends in Action. Manning Publiactions. 2020.  
+[5] Geers, M. Micro Frontends in Action. Manning Publications. 2020.  
 [6] Porcello, E., Banks, A. Learning React, 2nd Edition. O'Reilly Media, Inc. 2020.
