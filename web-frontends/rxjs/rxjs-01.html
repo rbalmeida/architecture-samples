@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script src="https://npmcdn.com/@reactivex/rxjs@5.0.0-rc.1/dist/global/Rx.js"></script>
+    </head>
+    <body>
+        <script>
+            var myObservable = Rx.Observable.create(observer => {
+                observer.next('foo');
+                setTimeout(() => observer.next('bar'), 1000);
+              });
+              myObservable.subscribe(value => console.log(value));
+            Rx.Observable.fromEvent(document, 'click').subscribe( () =>{
+                console.log('clicked');
+            })
+        </script>
+    </body>
+</html>
