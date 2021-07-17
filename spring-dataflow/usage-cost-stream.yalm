@@ -1,0 +1,42 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: usage-detail-sender
+  labels:
+    app: usage-cost-stream
+spec:
+  containers:
+    - name: usage-detail-sender
+      image: usage-detail-sender-rabbit:0.0.1-SNAPSHOT
+      env:
+        - name: SPRING_RABBITMQ_ADDRESSES
+          value: rabbitmq
+
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: usage-cost-processor
+  labels:
+    app: usage-cost-stream
+spec:
+  containers:
+    - name: usage-cost-processor
+      image: usage-cost-processor-rabbit:0.0.1-SNAPSHOT
+      env:
+        - name: SPRING_RABBITMQ_ADDRESSES
+          value: rabbitmq
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: usage-cost-logger
+  labels:
+    app: usage-cost-stream
+spec:
+  containers:
+    - name: usage-cost-logger
+      image: usage-cost-logger-rabbit:0.0.1-SNAPSHOT
+      env:
+        - name: SPRING_RABBITMQ_ADDRESSES
+          value: rabbitmq
