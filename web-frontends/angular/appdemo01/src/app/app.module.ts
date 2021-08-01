@@ -8,6 +8,8 @@ import { Simple02Component } from './simple02/simple02.component';
 import { SubPathComponent } from './sub-path/sub-path.component';
 import { SubPathChild01Component } from './sub-path/sub-path-child01/sub-path-child01.component';
 import { SubPathChild02Component } from './sub-path/sub-path-child02/sub-path-child02.component';
+import { ApiClientComponent } from './api-client/api-client.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { SubPathChild02Component } from './sub-path/sub-path-child02/sub-path-ch
     Simple02Component,
     SubPathComponent,
     SubPathChild01Component,
-    SubPathChild02Component
+    SubPathChild02Component,
+    ApiClientComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
